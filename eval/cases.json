@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Alex x Junior AI Engineer (strong match)",
+    "cv": "examples/cvs/alex_becker.md",
+    "job": "examples/jobs/junior_ai_engineer.md",
+    "score_range": [65, 95],
+    "labels": [
+      {"keywords": ["python"], "expect": ["met"]},
+      {"keywords": ["llm", "llms", "rag", "language model", "language models", "retrieval"], "expect": ["met", "partial"]},
+      {"keywords": ["rest"], "expect": ["met"]},
+      {"keywords": ["degree", "computer science"], "expect": ["met"]},
+      {"keywords": ["english"], "expect": ["met"]},
+      {"keywords": ["kubernetes"], "expect": ["missing", "partial"]},
+      {"keywords": ["aws"], "expect": ["missing"]},
+      {"keywords": ["german"], "expect": ["met"]}
+    ]
+  },
+  {
+    "name": "Sam x Frontend Developer (good match, junior)",
+    "cv": "examples/cvs/sam_ritter.md",
+    "job": "examples/jobs/frontend_developer.md",
+    "score_range": [45, 90],
+    "labels": [
+      {"keywords": ["react"], "expect": ["met"]},
+      {"keywords": ["html", "css"], "expect": ["met"]},
+      {"keywords": ["git"], "expect": ["met"]},
+      {"keywords": ["typescript"], "expect": ["missing", "partial"]},
+      {"keywords": ["jest", "testing"], "expect": ["met", "partial"]},
+      {"keywords": ["node", "node.js"], "expect": ["met"]},
+      {"keywords": ["figma"], "expect": ["missing"]}
+    ]
+  },
+  {
+    "name": "Alex x Data Engineer (weak match)",
+    "cv": "examples/cvs/alex_becker.md",
+    "job": "examples/jobs/data_engineer.md",
+    "score_range": [15, 55],
+    "labels": [
+      {"keywords": ["airflow"], "expect": ["missing"]},
+      {"keywords": ["spark"], "expect": ["missing"]},
+      {"keywords": ["cloud", "aws", "gcp"], "expect": ["missing", "partial"]},
+      {"keywords": ["years", "data engineer"], "expect": ["missing", "partial"]},
+      {"keywords": ["dbt"], "expect": ["missing"]},
+      {"keywords": ["kafka"], "expect": ["missing"]}
+    ]
+  },
+  {
+    "name": "Sam x Junior AI Engineer (poor match, career changer)",
+    "cv": "examples/cvs/sam_ritter.md",
+    "job": "examples/jobs/junior_ai_engineer.md",
+    "score_range": [5, 45],
+    "labels": [
+      {"keywords": ["python"], "expect": ["missing"]},
+      {"keywords": ["llm", "llms", "rag", "language model", "language models", "retrieval"], "expect": ["missing"]},
+      {"keywords": ["degree", "computer science"], "expect": ["missing", "partial"]},
+      {"keywords": ["git"], "expect": ["met", "partial"]},
+      {"keywords": ["german"], "expect": ["met"]},
+      {"keywords": ["aws"], "expect": ["missing"]}
+    ]
+  }
+]

@@ -55,14 +55,15 @@ export ANTHROPIC_API_KEY=sk-ant-...                    # Windows: set it in your
 python -m jobmatch examples/jobs/junior_ai_engineer.md examples/cvs/alex_becker.md -o report.md
 ```
 
-While it runs you see every tool call, including rejected evidence:
+While it runs you see every tool call (rejected evidence shows up as `✗ record_requirement: …`).
+A real run on the example files:
 
-```
-  🔎 search_cv('Kubernetes') -> 0 line(s)
-  📝 REST APIs [must] -> met
-  ✗ record_requirement: Evidence not found in the CV: '...'
-  📊 score: 72/100
-```
+<img src="docs/agent_run.png" alt="Terminal output: 12 CV searches, 10 requirements recorded, score 91/100, 6 turns, 24 tool calls, cost $0.144" width="700">
+
+And the report it wrote ([full size](docs/example_report.png)). Note the "He" in the summary:
+this run predates the fix described under [Results](#results).
+
+<img src="docs/example_report.png" alt="Markdown report: match score 91/100, requirement table with CV quotes, strengths, gaps with advice, cover letter outline" width="700">
 
 Use your own files with `python -m jobmatch job_ad.pdf my_cv.pdf -o report.md`. Add
 `--model claude-haiku-5-5` for a much cheaper run, and `--json run.json` to save the full

@@ -79,7 +79,37 @@ Python must be *missing*". `python eval/run_eval.py` runs the agent on every cas
   most harmful error, because it sets the candidate up to fail in an interview.
 - **Score in expected range,** plus evidence retries, turns and cost per run.
 
-<!-- RESULTS: paste the table printed by `python eval/run_eval.py` here -->
+### Results
+
+`claude-opus-5-5`, November 2026, commit `e535934`:
+
+| Case | Score (expected range) | Label accuracy | Overclaims | Not assessed | Evidence retries | Turns | Cost |
+|---|---|---|---|---|---|---|---|
+| Alex × Junior AI Engineer (strong match) | 91 (65–95) ✅ | 100% | 0 | 0 | 0 | 6 | $0.134 |
+| Sam × Frontend Developer (good match, junior) | 61 (45–90) ✅ | 86% | 0 | 0 | 0 | 5 | $0.117 |
+| Alex × Data Engineer (weak match) | 35 (15–55) ✅ | 67% | 0 | 0 | 0 | 6 | $0.144 |
+| Sam × Junior AI Engineer (poor match, career changer) | 33 (5–45) ✅ | 100% | 0 | 0 | 0 | 6 | $0.158 |
+
+**24/27 labels correct, 0 overclaims, 4/4 scores in the expected range, about $0.14 per run.**
+Prompt caching served about 75% of input tokens from cache.
+
+**What the misses show.** All three misses are *partial* ratings where the label expected
+something else, never a false *met*:
+
+- **React for Sam** (label *met*, agent *partial*): the ad asks for professional experience, and
+  Sam's React comes from a bootcamp and personal projects. The agent's call is defensible, and the
+  label is arguably too strict. I left the label unchanged rather than editing labels after seeing
+  results.
+- **Airflow and Spark for Alex** (label *missing*, agent *partial*): the agent gave partial credit
+  for adjacent experience (a Python ETL script). That's not an overclaim, but it errs in the
+  generous direction. **Next iteration:** define *partial* more strictly in the system prompt
+  (same kind of tool or a direct alternative, not just related work) and re-run the eval.
+- **Evidence retries were 0:** the model always quoted the CV correctly, so on these cases the
+  quote check acted as a safety net that was never needed. The tests exercise the rejection path.
+
+The first real run also surfaced a fairness issue: the report called the gender-neutral fictional
+candidate "he". Commit `f4e2197` added a rule to refer to the candidate by name and not assume
+gender, age or background.
 
 ## Engineering notes
 

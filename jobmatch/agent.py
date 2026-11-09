@@ -41,7 +41,8 @@ related or weaker experience (for example Docker but not Kubernetes, or coursewo
 evidence: never invent experience, employers, numbers or degrees. For each gap give specific, \
 realistic advice: a small project, a course, or how to frame transferable experience honestly.
 
-Write the report in the language of the job ad."""
+Write the report in the language of the job ad. Refer to the candidate by name or as \
+"the candidate"; do not assume their gender, age or background beyond what the CV states."""
 
 
 class AgentError(RuntimeError):
